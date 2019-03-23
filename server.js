@@ -21,7 +21,7 @@ app.post("/login", (req, res) => {
         name: "Ahmed Mahmoud",
         email: "ahmed.m.web.dev@gmail.com",
     };
-    jwt.sign({ user }, "secretkeyHere", (err, token) => {
+    jwt.sign({ user }, "secretkeyHere", { expiresIn: "30s" }, (err, token) => {
         if (err) {
             res.status(500).json({
                 error: err
