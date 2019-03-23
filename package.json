@@ -1,0 +1,28 @@
+{
+  "name": "node_auth",
+  "version": "1.0.0",
+  "description": "Create authentication App for accessing api or to limit the access using token",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EngAhmedMahmoud/node_auth.git"
+  },
+  "keywords": [
+    "node",
+    "authentication",
+    "jwt"
+  ],
+  "author": "EngAhmedMahmoud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EngAhmedMahmoud/node_auth/issues"
+  },
+  "homepage": "https://github.com/EngAhmedMahmoud/node_auth#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
