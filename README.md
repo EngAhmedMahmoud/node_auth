@@ -23,5 +23,6 @@ After getting the token add it into headers for posts api
 ```
 http://127.0.0.1:5000/posts 
 ```
-Authorization Bearer PUT_HERE_TOKEN
+**Authorization Bearer PUT_HERE_TOKEN**
+
 After 30 seconds the token is not valid because the expireation time
