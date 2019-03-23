@@ -33,7 +33,35 @@ app.post("/login", (req, res) => {
         }
     });
 });
+//limit the access
+app.post("/posts", verifyAccess, (req, res) => {
+    jwt.verify(req.token, "secretkeyHere", (err, authData) => {
+        if (err) {
+            res.sendStatus(403);
+        } else {
+            res.status(200).json({
+                msg: "Hi you have the access to web api",
+                data: authData
+            });
+        }
+    });
+});
 
+//verifyAccess
+function verifyAccess(req, res, next) {
+    const bearerHeader = req.headers["authorization"];
+    console.log(bearerHeader);
+    if (typeof (bearerHeader) !== "undefined") {
+        //get token from header
+        const bearer = bearerHeader.split(" ");
+        const token = bearer[1];
+        req.token = token;
+        //calling the next request
+        next();
+    } else {
+        res.sendStatus(403);
+    }
+}
 //running the server
 app.listen(PORT, () => {
     console.log(`Server started: http://${HOST}:${PORT}`);
