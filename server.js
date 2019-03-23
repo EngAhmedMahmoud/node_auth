@@ -14,7 +14,27 @@ app.get("/", (req, res) => {
         msg: "Welcome to jwt authentication application"
     });
 });
+//create token for user
+app.post("/login", (req, res) => {
+    let user = {
+        id: 12,
+        name: "Ahmed Mahmoud",
+        email: "ahmed.m.web.dev@gmail.com",
+    };
+    jwt.sign({ user }, "secretkeyHere", (err, token) => {
+        if (err) {
+            res.status(500).json({
+                error: err
+            });
+        } else {
+            res.status(200).json({
+                token: token
+            });
+        }
+    });
+});
+
 //running the server
 app.listen(PORT, () => {
-    console.log(`Server started:${HOST}:${PORT}`);
+    console.log(`Server started: http://${HOST}:${PORT}`);
 });
